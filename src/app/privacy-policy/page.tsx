@@ -88,6 +88,14 @@ export default function PrivacyPolicy() {
             <div className="text-sm text-gray-500 mt-8">
               Last Updated: {new Date().toLocaleDateString()}
             </div>
+
+            <p className="text-gray-600 mb-4">
+              We don&apos;t sell your personal data to third parties.
+            </p>
+
+            <p className="text-gray-600 mb-4">
+              By using our service, you agree to our &quot;Terms of Service&quot; and &quot;Privacy Policy&quot;.
+            </p>
           </div>
         </motion.div>
       </div>

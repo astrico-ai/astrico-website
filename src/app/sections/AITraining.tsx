@@ -3,89 +3,6 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
-const trainingModes = [
-  {
-    id: 'chat',
-    title: 'Chat Simulation',
-    description: 'AI-powered chat scenarios that simulate real customer interactions',
-    features: [
-      'Real-time conversation simulation',
-      'Instant feedback on responses',
-      'Multiple scenario variations',
-      'Performance analytics'
-    ],
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-      </svg>
-    )
-  },
-  {
-    id: 'voice',
-    title: 'Voice Simulation',
-    description: 'Natural voice interactions with AI for realistic call training',
-    features: [
-      'Voice recognition & analysis',
-      'Tone and sentiment feedback',
-      'Call handling scenarios',
-      'Speech clarity metrics'
-    ],
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-      </svg>
-    )
-  }
-];
-
-interface ChatMessage {
-  role: 'customer' | 'agent';
-  message?: string;
-  timestamp?: string;
-  options?: string[];
-  feedback?: {
-    best: number;
-    explanation: string;
-  };
-}
-
-interface CallScenario {
-  scenario: string;
-  customerMood: string;
-  objectives: string[];
-}
-
-const sampleChat: ChatMessage[] = [
-  {
-    role: 'customer',
-    message: "Hi, I'm having trouble with my recent order #12345. It hasn't arrived yet.",
-    timestamp: '10:30 AM'
-  },
-  {
-    role: 'agent',
-    options: [
-      'I understand your concern about the delayed order. Let me check the status for you.',
-      'Sorry about that. Give me a moment to look into it.',
-      'I\'ll help you track down your order right away.'
-    ],
-    feedback: {
-      best: 0,
-      explanation: 'This response shows empathy and professionalism while clearly stating the next action.'
-    }
-  }
-];
-
-const sampleCall: CallScenario = {
-  scenario: 'Customer calling about a billing discrepancy',
-  customerMood: 'Concerned',
-  objectives: [
-    'Verify customer identity',
-    'Locate billing information',
-    'Explain charges clearly',
-    'Resolve discrepancy'
-  ]
-};
-
 const voiceFeatures = [
   {
     title: 'Voice recognition & analysis',
@@ -112,13 +29,6 @@ export default function AITraining() {
     setMounted(true);
   }, []);
 
-  const scrollToContact = () => {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   if (!mounted) {
     return null;
   }
@@ -132,7 +42,7 @@ export default function AITraining() {
         <div className="absolute inset-0 bg-grid-pattern opacity-[0.015]" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

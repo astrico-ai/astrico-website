@@ -90,6 +90,10 @@ export default function TermsOfService() {
               </p>
             </section>
 
+            <p className="text-gray-600 mb-4">
+              We don&apos;t guarantee the accuracy of any content or data provided through the service.
+            </p>
+
             <div className="text-sm text-gray-500 mt-8">
               Last Updated: {new Date().toLocaleDateString()}
             </div>

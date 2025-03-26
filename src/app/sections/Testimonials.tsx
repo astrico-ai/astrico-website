@@ -51,7 +51,7 @@ export default function Testimonials() {
               <div className="absolute top-4 right-4 text-6xl text-primary-blue/10">"</div>
               
               <div className="relative">
-                <p className="text-gray-600 mb-6 italic">"{testimonial.quote}"</p>
+                <p className="text-gray-600 mb-6 italic">&quot;{testimonial.quote}&quot;</p>
                 
                 <div className="flex items-center">
                   <div className="h-12 w-12 rounded-full bg-gray-200 mr-4">

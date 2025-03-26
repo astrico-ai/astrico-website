@@ -108,6 +108,16 @@ export default function Legal() {
                 <li>Data portability</li>
               </ul>
             </section>
+
+            <section>
+              <h2 className="text-xl font-semibold text-gray-900 mb-4">6. Data Sharing</h2>
+              <p className="text-gray-600 mb-4">
+                We don&apos;t sell your personal data to third parties.
+              </p>
+              <p className="text-gray-600 mb-4">
+                We don&apos;t share your information with third parties except as described in this policy.
+              </p>
+            </section>
           </motion.div>
 
           {/* Terms of Service Content */}
