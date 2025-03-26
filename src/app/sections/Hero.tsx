@@ -3,17 +3,6 @@
 import { motion } from 'framer-motion';
 
 export default function Hero() {
-  const scrollToContact = () => {
-    const contactSection = document.querySelector('#contact') as HTMLElement;
-    if (contactSection) {
-      const offsetTop = contactSection.offsetTop;
-      window.scrollTo({
-        top: offsetTop - 20, // Small offset to give some breathing room
-        behavior: 'smooth'
-      });
-    }
-  };
-
   return (
     <section className="relative overflow-hidden pt-24 pb-12 section-padding">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -39,17 +28,23 @@ export default function Hero() {
           </motion.p>
 
           <motion.div 
-            className="flex justify-center"
+            className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <button
-              onClick={scrollToContact}
-              className="btn-primary px-12 py-4 text-lg font-medium hover:scale-105 transition-transform"
-            >
-              Get Started
-            </button>
+            <div className="text-center">
+              <h3 className="text-4xl font-bold gradient-text">60%</h3>
+              <p className="mt-2 text-gray-600">Time Saved on Information Retrieval</p>
+            </div>
+            <div className="text-center">
+              <h3 className="text-4xl font-bold gradient-text">2x</h3>
+              <p className="mt-2 text-gray-600">Faster Decision Making</p>
+            </div>
+            <div className="text-center">
+              <h3 className="text-4xl font-bold gradient-text">85%</h3>
+              <p className="mt-2 text-gray-600">Improved Team Collaboration</p>
+            </div>
           </motion.div>
         </div>
       </div>
