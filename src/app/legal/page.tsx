@@ -2,18 +2,17 @@
 
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { useSearchParams } from 'next/navigation';
 
 export default function Legal() {
-  const searchParams = useSearchParams();
   const [activeTab, setActiveTab] = useState('privacy');
 
   useEffect(() => {
-    const tab = searchParams.get('tab');
+    const params = new URLSearchParams(window.location.search);
+    const tab = params.get('tab');
     if (tab === 'privacy' || tab === 'terms') {
       setActiveTab(tab);
     }
-  }, [searchParams]);
+  }, []);
 
   return (
     <div className="min-h-screen bg-gray-50 py-16">
@@ -22,26 +21,26 @@ export default function Legal() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="bg-white rounded-2xl shadow-lg p-8 md:p-12"
+          className="bg-white rounded-2xl shadow-lg p-8"
         >
           {/* Tab Navigation */}
           <div className="flex space-x-4 mb-8">
             <button
               onClick={() => setActiveTab('privacy')}
-              className={`px-6 py-2 rounded-lg transition-all ${
+              className={`px-4 py-2 rounded-lg transition-colors ${
                 activeTab === 'privacy'
                   ? 'bg-primary-blue text-white'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  : 'text-gray-600 hover:bg-gray-100'
               }`}
             >
               Privacy Policy
             </button>
             <button
               onClick={() => setActiveTab('terms')}
-              className={`px-6 py-2 rounded-lg transition-all ${
+              className={`px-4 py-2 rounded-lg transition-colors ${
                 activeTab === 'terms'
                   ? 'bg-primary-blue text-white'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  : 'text-gray-600 hover:bg-gray-100'
               }`}
             >
               Terms of Service
@@ -49,136 +48,100 @@ export default function Legal() {
           </div>
 
           {/* Privacy Policy Content */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: activeTab === 'privacy' ? 1 : 0 }}
-            className={`space-y-8 text-gray-600 ${activeTab === 'privacy' ? 'block' : 'hidden'}`}
-          >
-            <h1 className="text-3xl font-bold mb-8">Privacy Policy</h1>
-            <section>
+          <div className={activeTab === 'privacy' ? 'block' : 'hidden'}>
+            <h1 className="text-3xl font-bold mb-6">Privacy Policy</h1>
+            
+            <section className="mb-8">
               <h2 className="text-xl font-semibold text-gray-900 mb-4">1. Information We Collect</h2>
-              <p className="mb-4">
-                We collect information that you provide directly to us, including:
+              <p className="text-gray-600 mb-4">
+                We collect information that you provide directly to us, including when you:
               </p>
-              <ul className="list-disc pl-6 space-y-2">
-                <li>Name and contact information</li>
-                <li>Company details</li>
-                <li>Usage data and analytics</li>
-                <li>Communication preferences</li>
+              <ul className="list-disc list-inside text-gray-600 space-y-2 ml-4">
+                <li>Create an account</li>
+                <li>Use our services</li>
+                <li>Contact our support team</li>
+                <li>Subscribe to our newsletters</li>
               </ul>
             </section>
 
-            <section>
+            <section className="mb-8">
               <h2 className="text-xl font-semibold text-gray-900 mb-4">2. How We Use Your Information</h2>
-              <p className="mb-4">
+              <p className="text-gray-600 mb-4">
                 We use the information we collect to:
               </p>
-              <ul className="list-disc pl-6 space-y-2">
+              <ul className="list-disc list-inside text-gray-600 space-y-2 ml-4">
                 <li>Provide and improve our services</li>
-                <li>Communicate with you about our products</li>
-                <li>Send important notices and updates</li>
-                <li>Analyze and enhance our platform's performance</li>
+                <li>Send you updates and marketing communications</li>
+                <li>Respond to your comments and questions</li>
+                <li>Analyze usage patterns</li>
               </ul>
             </section>
 
-            <section>
+            <section className="mb-8">
               <h2 className="text-xl font-semibold text-gray-900 mb-4">3. Data Security</h2>
-              <p>
-                We implement appropriate technical and organizational measures to protect your personal information. However, no method of transmission over the Internet is 100% secure, and we cannot guarantee absolute security.
+              <p className="text-gray-600 mb-4">
+                We implement appropriate security measures to protect your personal information.
               </p>
             </section>
 
-            <section>
-              <h2 className="text-xl font-semibold text-gray-900 mb-4">4. Data Retention</h2>
-              <p>
-                We retain your personal information for as long as necessary to provide our services and fulfill the purposes outlined in this policy, unless a longer retention period is required by law.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-xl font-semibold text-gray-900 mb-4">5. Your Rights</h2>
-              <p className="mb-4">
+            <section className="mb-8">
+              <h2 className="text-xl font-semibold text-gray-900 mb-4">4. Your Rights</h2>
+              <p className="text-gray-600 mb-4">
                 You have the right to:
               </p>
-              <ul className="list-disc pl-6 space-y-2">
-                <li>Access your personal information</li>
+              <ul className="list-disc list-inside text-gray-600 space-y-2 ml-4">
+                <li>Access your personal data</li>
                 <li>Correct inaccurate data</li>
                 <li>Request deletion of your data</li>
-                <li>Object to data processing</li>
-                <li>Data portability</li>
+                <li>Opt-out of marketing communications</li>
               </ul>
             </section>
-
-            <section>
-              <h2 className="text-xl font-semibold text-gray-900 mb-4">6. Data Sharing</h2>
-              <p className="text-gray-600 mb-4">
-                We don&apos;t sell your personal data to third parties.
-              </p>
-              <p className="text-gray-600 mb-4">
-                We don&apos;t share your information with third parties except as described in this policy.
-              </p>
-            </section>
-          </motion.div>
+          </div>
 
           {/* Terms of Service Content */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: activeTab === 'terms' ? 1 : 0 }}
-            className={`space-y-8 text-gray-600 ${activeTab === 'terms' ? 'block' : 'hidden'}`}
-          >
-            <h1 className="text-3xl font-bold mb-8">Terms of Service</h1>
-            <section>
+          <div className={activeTab === 'terms' ? 'block' : 'hidden'}>
+            <h1 className="text-3xl font-bold mb-6">Terms of Service</h1>
+
+            <section className="mb-8">
               <h2 className="text-xl font-semibold text-gray-900 mb-4">1. Acceptance of Terms</h2>
-              <p>
-                By accessing and using Astrico's services, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.
+              <p className="text-gray-600 mb-4">
+                By accessing or using our services, you agree to be bound by these Terms of Service.
               </p>
             </section>
 
-            <section>
-              <h2 className="text-xl font-semibold text-gray-900 mb-4">2. Service Description</h2>
-              <p className="mb-4">
-                Astrico provides AI-powered training solutions for customer service teams. Our services include:
+            <section className="mb-8">
+              <h2 className="text-xl font-semibold text-gray-900 mb-4">2. Use of Services</h2>
+              <p className="text-gray-600 mb-4">
+                You agree to use our services only for lawful purposes and in accordance with these Terms.
               </p>
-              <ul className="list-disc pl-6 space-y-2">
-                <li>Voice simulation training</li>
-                <li>Performance analytics</li>
-                <li>Training management tools</li>
-                <li>Reporting and insights</li>
-              </ul>
             </section>
 
-            <section>
-              <h2 className="text-xl font-semibold text-gray-900 mb-4">3. User Obligations</h2>
-              <p className="mb-4">You agree to:</p>
-              <ul className="list-disc pl-6 space-y-2">
-                <li>Provide accurate information</li>
-                <li>Maintain the security of your account</li>
-                <li>Use the services in compliance with applicable laws</li>
-                <li>Not misuse or attempt to exploit the services</li>
-              </ul>
+            <section className="mb-8">
+              <h2 className="text-xl font-semibold text-gray-900 mb-4">3. User Accounts</h2>
+              <p className="text-gray-600 mb-4">
+                You are responsible for maintaining the confidentiality of your account credentials.
+              </p>
             </section>
 
-            <section>
+            <section className="mb-8">
               <h2 className="text-xl font-semibold text-gray-900 mb-4">4. Intellectual Property</h2>
-              <p>
-                All content, features, and functionality of our services are owned by Astrico and are protected by international copyright, trademark, and other intellectual property laws.
+              <p className="text-gray-600 mb-4">
+                Our service and its contents are protected by copyright and other intellectual property laws.
               </p>
             </section>
-          </motion.div>
+          </div>
 
           {/* Common Footer */}
           <div className="mt-12 pt-8 border-t border-gray-200">
-            <div className="flex flex-col space-y-4">
-              <p>
-                For any questions about our Privacy Policy or Terms of Service, please contact us at{' '}
-                <a href="mailto:hello@astrico.ai" className="text-primary-blue hover:text-primary-blue/80">
-                  hello@astrico.ai
-                </a>
-              </p>
-              <p className="text-sm text-gray-500">
-                Last Updated: {new Date().toLocaleDateString()}
-              </p>
-            </div>
+            <p className="text-sm text-gray-500">
+              For any questions about our Privacy Policy or Terms of Service, please contact us at{' '}
+              <a href="mailto:hello@astrico.ai" className="text-primary-blue hover:underline">
+                hello@astrico.ai
+              </a>
+            </p>
+            <p className="text-sm text-gray-500 mt-2">
+              Last updated: {new Date().toLocaleDateString()}
+            </p>
           </div>
         </motion.div>
       </div>

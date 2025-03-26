@@ -36,14 +36,14 @@ export default function PrivacyPolicy() {
                 <li>Provide and improve our services</li>
                 <li>Communicate with you about our products</li>
                 <li>Send important notices and updates</li>
-                <li>Analyze and enhance our platform's performance</li>
+                <li>Analyze and enhance our platform&apos;s performance</li>
               </ul>
             </section>
 
             <section>
               <h2 className="text-xl font-semibold text-gray-900 mb-4">3. Data Security</h2>
               <p>
-                We implement appropriate technical and organizational measures to protect your personal information. However, no method of transmission over the Internet is 100% secure, and we cannot guarantee absolute security.
+                We implement appropriate technical and organizational measures to protect your personal information.
               </p>
             </section>
 
@@ -85,17 +85,14 @@ export default function PrivacyPolicy() {
               </p>
             </section>
 
-            <div className="text-sm text-gray-500 mt-8">
-              Last Updated: {new Date().toLocaleDateString()}
+            <div className="mt-12 pt-8 border-t border-gray-200">
+              <p className="text-sm text-gray-500">
+                By using our service, you agree to our &ldquo;Terms of Service&rdquo; and &ldquo;Privacy Policy&rdquo;.
+              </p>
+              <p className="text-sm text-gray-500 mt-4">
+                Last Updated: {new Date().toLocaleDateString()}
+              </p>
             </div>
-
-            <p className="text-gray-600 mb-4">
-              We don&apos;t sell your personal data to third parties.
-            </p>
-
-            <p className="text-gray-600 mb-4">
-              By using our service, you agree to our &quot;Terms of Service&quot; and &quot;Privacy Policy&quot;.
-            </p>
           </div>
         </motion.div>
       </div>
