@@ -17,6 +17,9 @@ export const metadata: Metadata = {
   title: "Astrico - Enterprise Knowledge Management Platform",
   description: "Unify your enterprise knowledge across marketing, sales, and customer service tools. Work smarter with Astrico's intelligent data integration platform.",
   keywords: "enterprise knowledge management, marketing analytics, sales intelligence, customer service tools, data integration",
+  verification: {
+    google: "Bur3gLfsXuPqIZ9yDE-swIKQSDd4DWcqZ6BxGwiRpks",
+  },
 };
 
 export default function RootLayout({
