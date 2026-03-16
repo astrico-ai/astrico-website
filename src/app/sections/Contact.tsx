@@ -45,6 +45,11 @@ export default function Contact() {
               <a
                 href="mailto:hello@astrico.ai"
                 className="text-primary-blue hover:text-primary-blue/80 transition-colors text-lg font-medium"
+                onClick={() => {
+                  if (typeof window !== 'undefined' && (window as any).gtag) {
+                    (window as any).gtag('event', 'conversion', { send_to: 'AW-18019381987/67ZoCOKnxokcEOPlp5BD' });
+                  }
+                }}
               >
                 hello@astrico.ai
               </a>
